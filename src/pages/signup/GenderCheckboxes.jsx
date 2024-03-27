@@ -1,20 +1,37 @@
-const GenderCheckboxes = () => {
+const GenderCheckbox = ({ onCheckboxChange, selectedGender }) => {
   return (
-    <div className="flex gap-3">
+    <div className="flex">
       <div className="form-control">
-        <label className="label cursor-pointer flex gap-2" htmlFor="male">
+        <label
+          className={`label gap-2 cursor-pointer ${
+            selectedGender === "male" ? "selected" : ""
+          } `}
+        >
           <span className="label-text">Male</span>
-          <input type="radio"  className="radio" id="male" name="gender"/>
+          <input
+            type="checkbox"
+            className="checkbox border-slate-900"
+            checked={selectedGender === "male"}
+            onChange={() => onCheckboxChange("male")}
+          />
         </label>
       </div>
       <div className="form-control">
-        <label className="label cursor-pointer flex gap-2" htmlFor="female">
+        <label
+          className={`label gap-2 cursor-pointer  ${
+            selectedGender === "female" ? "selected" : ""
+          }`}
+        >
           <span className="label-text">Female</span>
-          <input type="radio"  className="radio" id="female" name="gender"/>
+          <input
+            type="checkbox"
+            className="checkbox border-slate-900"
+            checked={selectedGender === "female"}
+            onChange={() => onCheckboxChange("female")}
+          />
         </label>
       </div>
     </div>
   );
 };
-
-export default GenderCheckboxes;
+export default GenderCheckbox;
