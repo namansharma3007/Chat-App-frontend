@@ -12,14 +12,16 @@ export default defineConfig(({ mode }) => {
       port: 3000,
       proxy: {
         "/api": {
-          target: env.VITE_BACKEND_URL,
+          // target: env.VITE_BACKEND_URL,
+          // target: "https://chat-app-server-utev.onrender.com",
+          target: "http://localhost:5000",
         },
       },
     },
-    define: {
-      // Expose environment variables to your application
-      'import.meta.env.VITE_BACKEND_URL': JSON.stringify(env.VITE_BACKEND_URL),
-      // Add more environment variables as needed
-    }
+    // define: {
+    //   // Expose environment variables to your application
+    //   'import.meta.env.VITE_BACKEND_URL': JSON.stringify(env.VITE_BACKEND_URL),
+    //   // Add more environment variables as needed
+    // }
   }
 })
