@@ -2,9 +2,12 @@ import { useRef, useEffect } from "react";
 import Message from "./Message";
 import useGetMessages from "../../hooks/useGetMessages";
 import MessageSkeleton from "../skeletons/MessageSkeleton";
+import uselistenMessages from "../../hooks/uselistenMessages";
 
 const Messages = () => {
   const { loading, messages } = useGetMessages();
+
+  uselistenMessages();
 
   const messagesEndRef = useRef(null);
   const scrollToBottom = () => {
